@@ -156,28 +156,43 @@ const usuariosVeterinaria = [
 
 function añadir (){
   let nuevo = {}
-    console.info("Seleccionaste la opcion de añadir animal")
-    let nombre = prompt("Ingrese el nombre del animal")
-    nuevo.especie = nombre
-    let especie = prompt("Ingrese la especie del animal")
-    nuevo.raza = especie
-    let raza = prompt("Ingrese la raza del animal")
-    nuevo.raza = raza
-    let fechaNacimiento = Date(prompt("Ingrese la fecha de nacimiento del animal", "YYYY/MM/DD"))
-    nuevo.fechaNacimiento = fechaNacimiento
-    let peso = prompt("Ingrese el peso del animal")
-    nuevo.peso = peso
-    let estado = prompt("Ingrese el estado del animal")
-    nuevo.estado = estado
-    nuevo.dueno
-    let nombreDueno = prompt("Ingrese el nombre del dueño")
-    nuevo.dueno.nombre=nombreDueno
-    let documento = prompt("Ingrese el documento del dueño")
-    nuevo.dueno.documento=documento
-    let telefono = prompt("Ingrese el telefono del dueño")
-    nuevo.dueno.telefono=telefono
-    let correo = prompt("Ingrese el correo del dueño")
-    nuevo.dueno.correo=correo
+console.info("Seleccionaste la opcion de añadir animal")
+nuevo.nombre = prompt("Ingrese el nombre del animal")
+nuevo.especie = prompt("Ingrese la especie del animal")
+nuevo.raza = prompt("Ingrese la raza del animal")
+let fechaDeNacimiento = new Date(prompt("Ingrese la fecha de nacimiento del animal", "YYYY/MM/DD"))
+nuevo.fechaNacimiento = fechaDeNacimiento
+nuevo.edad = Math.floor((new Date() - fechaDeNacimiento)/(1000*3600*24*365))
+nuevo.peso = prompt("Ingrese el peso del animal")
+nuevo.estado = prompt("Ingrese estado del animal: Estable/Critico")
+
+nuevo.dueno = {}
+nuevo.dueno.nombre=prompt("Ingrese el nombre del dueño")
+nuevo.dueno.documento= prompt("Ingrese el documento del dueño")
+nuevo.dueno.telefono= prompt("Ingrese el telefono del dueño")
+nuevo.dueno.correo= prompt("Ingrese el correo del dueño")
+
+usuariosVeterinaria.push(nuevo)
+alert ("Animal añadidio con exito")
 }
 
-console.info(nuevo)
+function eliminar (){
+  alert("Seleccionaste la opcion de eliminar un animal")
+  let eliminar = prompt("Ingrese el nombre del animal que desea eliminar")
+  let cedula = prompt("Ingrese la cedula del dueño")
+  let encontrado = false
+
+  usuariosVeterinaria.forEach((animal,posicion) => {
+    if (usuariosVeterinaria[posicion].nombre === eliminar && usuariosVeterinaria[posicion].dueno.documento === cedula) {
+      usuariosVeterinaria.splice(posicion,1)
+      encontrado = true
+    } })
+    
+    if (encontrado) {
+      alert("Eliminado con exito")
+    }
+    else {
+      alert("No se encontro el animal en la base de datos")
+    }
+  }
+    
