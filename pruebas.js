@@ -301,6 +301,12 @@ for (const i in usuariosVeterinaria) {
 }
   
 
-  listar()
+function listarDueño(){
+    for (const iterator of usuariosVeterinaria) {
+        console.info(iterator.dueno)
+    }
+}
+
+listarDueño()
 
   

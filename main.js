@@ -299,3 +299,9 @@ function eliminar (){
             
         }
     }
+
+function listarDueño(){
+    for (const i of usuariosVeterinaria) {
+        console.info(i.dueno);
+    }
+}
