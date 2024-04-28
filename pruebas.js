@@ -150,36 +150,6 @@ const usuariosVeterinaria = [
           telefono: "0123456789",
           correo: "jorge@example.com"
         }
-      },
-      {
-        nombre: "Snowball",
-        especie: "Gato",
-        raza: "Ragdoll",
-        fechaNacimiento: new Date(2021,1,20),
-        edad:"3",
-        peso: "6",
-        estado: "estable",
-        dueno: {
-          nombre: "Jorge Martinez",
-          documento: "01234567",
-          telefono: "0123456789",
-          correo: "jorge@example.com"
-        }
-      },
-      {
-        nombre: "Snowball",
-        especie: "Gato",
-        raza: "Ragdoll",
-        fechaNacimiento: new Date(2021,1,20),
-        edad:"3",
-        peso: "6",
-        estado: "estable",
-        dueno: {
-          nombre: "Jorge Martinez",
-          documento: "01234567",
-          telefono: "0123456789",
-          correo: "jorge@example.com"
-        }
       }
   ];
 
@@ -226,114 +196,113 @@ function eliminar (){
     }
   }
     
-function modificar (){
-  alert("Seleccionaste la opcion de modificar un animal")
-  let modificar = prompt("Ingrese el nombre del animal que desea modificar")
-  let cedula = prompt("Ingrese la cedula del dueño")
-  let op = prompt("Ingrese el dato que desea modificar")
-  option = op.toLowerCase()
-  let encontrado = false
+  function modificar (){
+    alert("Seleccionaste la opcion de modificar un animal")
+    let modificar = prompt("Ingrese el nombre del animal que desea modificar")
+    let cedula = prompt("Ingrese la cedula del dueño")
+    let op = prompt("Ingrese el dato que desea modificar")
+    option = op.toLowerCase()
+    let encontrado = false
+    
+    usuariosVeterinaria.forEach((animal,posicion) => {
+      if (usuariosVeterinaria[posicion].nombre === modificar && usuariosVeterinaria[posicion].dueno.documento === cedula) {
+      encontrado = true
+         switch (option) {
   
-  usuariosVeterinaria.forEach((animal,posicion) => {
-    if (usuariosVeterinaria[posicion].nombre === modificar && usuariosVeterinaria[posicion].dueno.documento === cedula) {
-    encontrado = true
-       switch (option) {
-
-        case "nombre":
-          let nuevoNombre = prompt("Ingrese el nuevo nombre")
-          usuariosVeterinaria[posicion].nombre = nuevoNombre
-          alert("cambio exitoso")
-          break
-
-        case "especie":
-          let nuevaEspecie = prompt("Ingrese la nueva especie")
-          usuariosVeterinaria[posicion].especie = nuevaEspecie
-          alert("cambio exitoso")
-          break
-
-          case "raza":
-            let nuevaRaza = prompt("Ingrese la nueva raza")
-            usuariosVeterinaria[posicion].raza = nuevaRaza
+          case "nombre":
+            let nuevoNombre = prompt("Ingrese el nuevo nombre")
+            usuariosVeterinaria[posicion].nombre = nuevoNombre
             alert("cambio exitoso")
             break
-
-          case "fecha de nacimiento":
-            let nuevaFecha = prompt("Ingrese la nueva fecha de nacimiento", "YYYY/MM/DD")
-            usuariosVeterinaria[posicion].fechaNacimiento = nuevaFecha
-            alert("cambio exitoso")
-            break
-
+  
           case "especie":
-            let nuevaPeso = prompt("Ingrese el nuevo peso")
-            usuariosVeterinaria[posicion].peso = nuevaPeso
+            let nuevaEspecie = prompt("Ingrese la nueva especie")
+            usuariosVeterinaria[posicion].especie = nuevaEspecie
             alert("cambio exitoso")
-           break
-           
-          case "estado":
-          if( usuariosVeterinaria[posicion].estado == "estable"){
-            usuariosVeterinaria[posicion].estado == "critico"
-          }
-          else{
-            usuariosVeterinaria[posicion].estado == "estable"
-          }
-          alert("cambio exitoso")
-          break
-
-          case "dueno":
-            let type = prompt("Ingrese el dato del deño que desea modificar").toLowerCase()
-            if (type == "nombre"){
-            newNombre = prompt("Ingrese el nuevo nombre")
-            usuariosVeterinaria[posicion].dueno.nombre = newNombre
-            alert("cambio exitoso")}
-
-            else if (type == "documento"){
-              let newDocumento = prompt("Ingrese el nuevo documento")
-              usuariosVeterinaria[posicion].dueno.documento=newDocumento
-              alert("Cambio exitoso")
-            }
-
-            else if (type =="telefono"){
-              newTelefono = prompt("Ingrese el nuevo numero de telefono")
-              usuariosVeterinaria[posicion].dueno.telefono = newTelefono
-              alert("Cambio exitoso")
-            }
-
-            else if (type == "correo"){
-              newCorreo = prompt("Ingrese el nuevo correo")
-              usuariosVeterinaria[posicion].dueno.correo = newCorreo
-              alert("Cambio exitoso")
+            break
+  
+            case "raza":
+              let nuevaRaza = prompt("Ingrese la nueva raza")
+              usuariosVeterinaria[posicion].raza = nuevaRaza
+              alert("cambio exitoso")
+              break
+  
+            case "fecha de nacimiento":
+              let nuevaFecha = prompt("Ingrese la nueva fecha de nacimiento", "YYYY/MM/DD")
+              usuariosVeterinaria[posicion].fechaNacimiento = nuevaFecha
+              alert("cambio exitoso")
+              break
+  
+            case "especie":
+              let nuevaPeso = prompt("Ingrese el nuevo peso")
+              usuariosVeterinaria[posicion].peso = nuevaPeso
+              alert("cambio exitoso")
+             break
+             
+            case "estado":
+            if( usuariosVeterinaria[posicion].estado == "estable"){
+              usuariosVeterinaria[posicion].estado == "critico"
             }
             else{
-                alert("No se encontro el dato que desea modificar")
+              usuariosVeterinaria[posicion].estado == "estable"
             }
+            alert("cambio exitoso")
             break
-
-            default:
-                alert("No se encontro el dato que desea modificar")
-                break
-       }
-    }
-    else{
-        encontrado = false 
-    }
-   }
-  )
-  if (!encontrado) {
-    alert("No se encontró el animal en la base de datos")
-  }
-}
-
-function listar (){
-for (const i in usuariosVeterinaria) {
-    console.info(usuariosVeterinaria[i])
-        
-    }
-}
   
+            case "dueno":
+              let type = prompt("Ingrese el dato del deño que desea modificar").toLowerCase()
+              if (type == "nombre"){
+              newNombre = prompt("Ingrese el nuevo nombre")
+              usuariosVeterinaria[posicion].dueno.nombre = newNombre
+              alert("cambio exitoso")}
+  
+              else if (type == "documento"){
+                let newDocumento = prompt("Ingrese el nuevo documento")
+                usuariosVeterinaria[posicion].dueno.documento=newDocumento
+                alert("Cambio exitoso")
+              }
+  
+              else if (type =="telefono"){
+                newTelefono = prompt("Ingrese el nuevo numero de telefono")
+                usuariosVeterinaria[posicion].dueno.telefono = newTelefono
+                alert("Cambio exitoso")
+              }
+  
+              else if (type == "correo"){
+                newCorreo = prompt("Ingrese el nuevo correo")
+                usuariosVeterinaria[posicion].dueno.correo = newCorreo
+                alert("Cambio exitoso")
+              }
+              else{
+                  alert("No se encontro el dato que desea modificar")
+              }
+              break
+  
+              default:
+                  alert("No se encontro el dato que desea modificar")
+                  break
+         }
+      }
+      else{
+          encontrado = false 
+      }
+     }
+    )
+    if (!encontrado) {
+      alert("No se encontró el animal en la base de datos")
+    }
+  }
+  
+  function listar (){
+    for (const i in usuariosVeterinaria) {
+        console.info(usuariosVeterinaria[i])
+            
+        }
+    }
 
 function listarDueño(){
-    for (const iterator of usuariosVeterinaria) {
-        console.info(iterator.dueno)
+    for (const i of usuariosVeterinaria) {
+        console.info(i.dueno);
     }
 }
 
@@ -351,15 +320,12 @@ function buscarPorNombre(){
     }
 }
 
-// buscarPorNombre()
-
 function buscarMismoDueño(){
     let cedula = prompt("Ingrese la cedula del dueño")
     let encontrado = false
     usuariosVeterinaria.forEach((animal,posicion) => {
         if (usuariosVeterinaria[posicion].dueno.documento === cedula) {
             encontrado = true
-            console.info("El dueño", usuariosVeterinaria[posicion].dueno.nombre,"Tiene los siguientes animales registrados");
             console.info(usuariosVeterinaria[posicion])
         }
     })
@@ -368,6 +334,45 @@ function buscarMismoDueño(){
     }
 }
 
-buscarMismoDueño()
-
-  
+function menu(){ let opcion = prompt(`Ingrese la opcion que necesita:
+1. Añadir animal
+2 Eliminar animal
+3. modificar animal
+4. mostrar lista de animales
+5. mostrar lista de dueños
+6.busar animal por nombre
+7. buscar animales por dueño
+8. Salir`)
+switch (opcion) {
+    case "1":
+        añadir()
+        menu()
+    case "2":
+        eliminar()
+        menu()
+    case "3":
+        modificar()
+        menu()
+    case "4":
+        listar()
+        menu()
+    case "5":
+        listarDueño()
+        menu()
+    case "6":
+        buscarPorNombre()
+        menu()
+    case "7":
+        buscarMismoDueño()
+        menu()
+    case "8":
+        menu()
+        menu()
+    case "8":
+        break
+    default:
+        alert("Opcion no valida")
+        break
+}}
+   
+menu()

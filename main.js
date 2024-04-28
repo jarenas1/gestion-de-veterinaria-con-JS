@@ -333,3 +333,46 @@ function buscarMismoDueño(){
         alert("No se encontró el animal en la base de datos")
     }
 }
+
+function menu(){ let opcion = prompt(`Ingrese la opcion que necesita:
+1. Añadir animal
+2 Eliminar animal
+3. modificar animal
+4. mostrar lista de animales
+5. mostrar lista de dueños
+6.busar animal por nombre
+7. buscar animales por dueño
+8. Salir`)
+switch (opcion) {
+    case "1":
+        añadir()
+        menu()
+    case "2":
+        eliminar()
+        menu()
+    case "3":
+        modificar()
+        menu()
+    case "4":
+        listar()
+        menu()
+    case "5":
+        listarDueño()
+        menu()
+    case "6":
+        buscarPorNombre()
+        menu()
+    case "7":
+        buscarMismoDueño()
+        menu()
+    case "8":
+        menu()
+        menu()
+    case "8":
+        break
+    default:
+        alert("Opcion no valida")
+        break
+}}
+   
+menu()
