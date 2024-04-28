@@ -150,6 +150,36 @@ const usuariosVeterinaria = [
           telefono: "0123456789",
           correo: "jorge@example.com"
         }
+      },
+      {
+        nombre: "Snowball",
+        especie: "Gato",
+        raza: "Ragdoll",
+        fechaNacimiento: new Date(2021,1,20),
+        edad:"3",
+        peso: "6",
+        estado: "estable",
+        dueno: {
+          nombre: "Jorge Martinez",
+          documento: "01234567",
+          telefono: "0123456789",
+          correo: "jorge@example.com"
+        }
+      },
+      {
+        nombre: "Snowball",
+        especie: "Gato",
+        raza: "Ragdoll",
+        fechaNacimiento: new Date(2021,1,20),
+        edad:"3",
+        peso: "6",
+        estado: "estable",
+        dueno: {
+          nombre: "Jorge Martinez",
+          documento: "01234567",
+          telefono: "0123456789",
+          correo: "jorge@example.com"
+        }
       }
   ];
 
@@ -307,6 +337,37 @@ function listarDueño(){
     }
 }
 
-listarDueño()
+function buscarPorNombre(){
+    let buscar = prompt("Ingrese el nombre del animal que desea buscar")
+    let encontrado = false
+    usuariosVeterinaria.forEach((animal,posicion) => {
+        if (usuariosVeterinaria[posicion].nombre === buscar) {
+            encontrado = true
+            console.info(usuariosVeterinaria[posicion])
+        }
+    })
+    if (!encontrado) {
+        alert("No se encontró el animal en la base de datos")
+    }
+}
+
+// buscarPorNombre()
+
+function buscarMismoDueño(){
+    let cedula = prompt("Ingrese la cedula del dueño")
+    let encontrado = false
+    usuariosVeterinaria.forEach((animal,posicion) => {
+        if (usuariosVeterinaria[posicion].dueno.documento === cedula) {
+            encontrado = true
+            console.info("El dueño", usuariosVeterinaria[posicion].dueno.nombre,"Tiene los siguientes animales registrados");
+            console.info(usuariosVeterinaria[posicion])
+        }
+    })
+    if (!encontrado) {
+        alert("No se encontró el animal en la base de datos")
+    }
+}
+
+buscarMismoDueño()
 
   

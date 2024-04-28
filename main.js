@@ -305,3 +305,31 @@ function listarDueño(){
         console.info(i.dueno);
     }
 }
+
+function buscarPorNombre(){
+    let buscar = prompt("Ingrese el nombre del animal que desea buscar")
+    let encontrado = false
+    usuariosVeterinaria.forEach((animal,posicion) => {
+        if (usuariosVeterinaria[posicion].nombre === buscar) {
+            encontrado = true
+            console.info(usuariosVeterinaria[posicion])
+        }
+    })
+    if (!encontrado) {
+        alert("No se encontró el animal en la base de datos")
+    }
+}
+
+function buscarMismoDueño(){
+    let cedula = prompt("Ingrese la cedula del dueño")
+    let encontrado = false
+    usuariosVeterinaria.forEach((animal,posicion) => {
+        if (usuariosVeterinaria[posicion].dueno.documento === cedula) {
+            encontrado = true
+            console.info(usuariosVeterinaria[posicion])
+        }
+    })
+    if (!encontrado) {
+        alert("No se encontró el animal en la base de datos")
+    }
+}
