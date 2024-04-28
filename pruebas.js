@@ -294,6 +294,7 @@ function eliminar (){
   }
   
   function listar (){
+    console.info("Lista de animales")
     for (const i in usuariosVeterinaria) {
         console.info(usuariosVeterinaria[i])
             
@@ -301,12 +302,14 @@ function eliminar (){
     }
 
 function listarDueño(){
+  console.info("Lista de dueños");
     for (const i of usuariosVeterinaria) {
         console.info(i.dueno);
     }
 }
 
 function buscarPorNombre(){
+  console.info("Buscar por dueño");
     let buscar = prompt("Ingrese el nombre del animal que desea buscar")
     let encontrado = false
     usuariosVeterinaria.forEach((animal,posicion) => {
@@ -347,32 +350,39 @@ switch (opcion) {
     case "1":
         añadir()
         menu()
+        break
     case "2":
         eliminar()
         menu()
+        break
     case "3":
         modificar()
         menu()
+        break;
     case "4":
         listar()
         menu()
+        break
     case "5":
         listarDueño()
         menu()
+        break
     case "6":
         buscarPorNombre()
         menu()
+        break
     case "7":
         buscarMismoDueño()
         menu()
+        break
     case "8":
-        menu()
-        menu()
-    case "8":
+      alert("Hasta pronto")
+      console.info(("Hata pronto"));
         break
     default:
         alert("Opcion no valida")
-        break
+        menu()
+        
 }}
    
 menu()
