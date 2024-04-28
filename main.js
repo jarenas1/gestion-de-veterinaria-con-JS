@@ -1,45 +1,47 @@
+//CREAMOS UNA VARIABLE CON LA FECHA ACTUAL
+//CREAMOS EL ARRAY PRINCIAL Y CADA UNO DE LOS 10 OBJETOS DE ANIMALES CIN SU RESPECTIVA SESION DE DUENO(DUEÑO)
 let actualDate = new Date()
 const usuariosVeterinaria = [
     {
-        nombre: "Luna",
-        especie: "Perro",
-        raza: "Labrador Retriever",
+        nombre: "luna",
+        especie: "perro",
+        raza: "labrador retriever",
         fechaNacimiento: new Date(2018,5,15),
         edad: "6",
         peso: "20",
         estado: "estable",
         dueno: {
-          nombre: "Juan Perez",
+          nombre: "juan perez",
           documento: "12345678",
           telefono: "1234567890",
           correo: "juan@example.com"
       }
     },
     {
-        nombre: "Max",
-        especie: "Gato",
-        raza: "Siamés",
+        nombre: "max",
+        especie: "gato",
+        raza: "siamés",
         fechaNacimiento: new Date(2020,2,20),
         edad : "4",
         peso: "5",
         estado: "critico",
         dueno: {
-          nombre: "Ana Garcia",
+          nombre: "ana garcia",
           documento: "87654321",
           telefono: "0987654321",
           correo: "ana@example.com"
         }
     },
     {
-        nombre: "Bobby",
-        especie: "Perro",
-        raza: "Bulldog",
+        nombre: "bobby",
+        especie: "perro",
+        raza: "bulldog",
         fechaNacimiento: new Date(2019,9,10),
         edad:"4",
         peso: "25",
         estado: "estable",
         dueno: {
-          nombre: "Carlos Ramirez",
+          nombre: "carlos ramirez",
           documento: "98765432",
           telefono: "0123456789",
           correo: "carlos@example.com"
@@ -76,45 +78,45 @@ const usuariosVeterinaria = [
         }
     },
     {
-        nombre: "Simba",
-        especie: "Gato",
-        raza: "Maine Coon",
+        nombre: "simba",
+        especie: "gato",
+        raza: "maine coon",
         fechaNacimiento: new Date(2019,1,30),
         edad: "5",
         peso: "10",
         estado: "critico",
         dueno: {
-          nombre: "Roberto Martinez",
+          nombre: "roberto martinez",
           documento: "23456789",
           telefono: "2345678901",
           correo: "roberto@example.com"
         }
     },
     {
-        nombre: "Lola",
-        especie: "Perro",
-        raza: "Poodle",
+        nombre: "lola",
+        especie: "perro",
+        raza: "poodle",
         fechaNacimiento: new Date(2020,10,15),
         edad: "3",
         peso: "15",
         estado: "estable",
         dueno: {
-          nombre: "Lucía Lopez",
+          nombre: "lucía lopez",
           documento: "45678901",
           telefono: "4567890123",
           correo: "lucia@example.com"
         }
     },
     {
-       nombre: "Whiskers",
-        especie: "Gato",
-        raza: "Siamese",
+       nombre: "whiskers",
+        especie: "gato",
+        raza: "siamese",
         fechaNacimiento: (2018,3,25),
         edad: "6",
         peso: "7",
         estado: "estable",
         dueno: {
-          nombre: "Pedro Sanchez",
+          nombre: "sedro Sanchez",
           documento: "67890123",
           telefono: "6789012345",
           correo: "pedro@example.com"
@@ -122,30 +124,30 @@ const usuariosVeterinaria = [
       
     },
     {
-        nombre: "Buddy",
-        especie: "Perro",
-        raza: "Bichón Frisé",
+        nombre: "buddy",
+        especie: "perro",
+        raza: "bichón Frisé",
         fechaNacimiento: new Date(2019,12,10),
         edad: "4",
         peso: "12",
         estado: "estable",
         dueno: {
-          nombre: "Sofía Rodriguez",
+          nombre: "sofía rodriguez",
           documento: "89012345",
           telefono: "8901234567",
           correo: "sofia@example.com"
         }
     },
     {
-        nombre: "Snowball",
-        especie: "Gato",
-        raza: "Ragdoll",
+        nombre: "snowball",
+        especie: "gato",
+        raza: "ragdoll",
         fechaNacimiento: new Date(2021,1,20),
         edad:"3",
         peso: "6",
         estado: "estable",
         dueno: {
-          nombre: "Jorge Martinez",
+          nombre: "jorge Martinez",
           documento: "01234567",
           telefono: "0123456789",
           correo: "jorge@example.com"
@@ -154,20 +156,21 @@ const usuariosVeterinaria = [
   ];
 
 
-function añadir (){
+//LA FUNCION AÑADIR LE PIDE AL USUARIO LOS DATOS NECESARIOS, LOS TRANSOFORMA EN MINUSCULA Y LOS SUBE AL ARRAY POR MEDIO DEL OBJETO NUEVO
+  function añadir (){
   let nuevo = {}
 console.info("Seleccionaste la opcion de añadir animal")
-nuevo.nombre = prompt("Ingrese el nombre del animal")
-nuevo.especie = prompt("Ingrese la especie del animal")
-nuevo.raza = prompt("Ingrese la raza del animal")
+nuevo.nombre = prompt("Ingrese el nombre del animal").toLocaleLowerCase()
+nuevo.especie = prompt("Ingrese la especie del animal").toLocaleLowerCase()
+nuevo.raza = prompt("Ingrese la raza del animal").toLocaleLowerCase()
 let fechaDeNacimiento = new Date(prompt("Ingrese la fecha de nacimiento del animal", "YYYY/MM/DD"))
 nuevo.fechaNacimiento = fechaDeNacimiento
 nuevo.edad = Math.floor((new Date() - fechaDeNacimiento)/(1000*3600*24*365))
 nuevo.peso = prompt("Ingrese el peso del animal")
-nuevo.estado = prompt("Ingrese estado del animal: Estable/Critico")
+nuevo.estado = prompt("Ingrese estado del animal: Estable/Critico").toLocaleLowerCase()
 
 nuevo.dueno = {}
-nuevo.dueno.nombre=prompt("Ingrese el nombre del dueño")
+nuevo.dueno.nombre=prompt("Ingrese el nombre del dueño").toLocaleLowerCase()
 nuevo.dueno.documento= prompt("Ingrese el documento del dueño")
 nuevo.dueno.telefono= prompt("Ingrese el telefono del dueño")
 nuevo.dueno.correo= prompt("Ingrese el correo del dueño")
@@ -175,10 +178,10 @@ nuevo.dueno.correo= prompt("Ingrese el correo del dueño")
 usuariosVeterinaria.push(nuevo)
 alert ("Animal añadidio con exito")
 }
-
+//LA FUNCION ELIMINAR PIDE AL USUARIO EL NOMBRE DEL ANIMAL Y LA CEDULA DE SU DUEÑO PARA EVITAR CONFUCIONES, Y POR MEEDIO DEL SPLICE CORTA EL ARRAY DEJANDO POR FUERA EL ANIMAL
 function eliminar (){
   alert("Seleccionaste la opcion de eliminar un animal")
-  let eliminar = prompt("Ingrese el nombre del animal que desea eliminar")
+  let eliminar = prompt("Ingrese el nombre del animal que desea eliminar").toLocaleLowerCase()
   let cedula = prompt("Ingrese la cedula del dueño")
   let encontrado = false
 
@@ -195,34 +198,36 @@ function eliminar (){
       alert("No se encontro el animal en la base de datos")
     }
   }
-    
+  
+  //EN LA FUNCION MODIFICAR TENEMOS EN CUENTA CADA UNO DE LOS PARAMETROS, MANEJANDO TODO EN MINUSCULAS Y OFRECIENDO OPCIONES COMO CAMBIAR DE ESYADO AUTOMATICAMENTE
+  //POR MEDIO DE ESTA TAMBIEN PODEMOS ACCEDER A LOS DATOS DEL DUENO Y MODIFICARLOS
   function modificar (){
     alert("Seleccionaste la opcion de modificar un animal")
-    let modificar = prompt("Ingrese el nombre del animal que desea modificar")
+    let modificar = prompt("Ingrese el nombre del animal que desea modificar").toLocaleLowerCase()
     let cedula = prompt("Ingrese la cedula del dueño")
-    let op = prompt("Ingrese el dato que desea modificar")
+    let op = prompt("Ingrese el dato que desea modificar").toLocaleLowerCase()
     option = op.toLowerCase()
-    let encontrado = false
+    let encontrado = true
     
     usuariosVeterinaria.forEach((animal,posicion) => {
       if (usuariosVeterinaria[posicion].nombre === modificar && usuariosVeterinaria[posicion].dueno.documento === cedula) {
       encontrado = true
-         switch (option) {
+          switch (option) {
   
           case "nombre":
-            let nuevoNombre = prompt("Ingrese el nuevo nombre")
+            let nuevoNombre = prompt("Ingrese el nuevo nombre").toLocaleLowerCase()
             usuariosVeterinaria[posicion].nombre = nuevoNombre
             alert("cambio exitoso")
             break
   
           case "especie":
-            let nuevaEspecie = prompt("Ingrese la nueva especie")
+            let nuevaEspecie = prompt("Ingrese la nueva especie").toLocaleLowerCase()
             usuariosVeterinaria[posicion].especie = nuevaEspecie
             alert("cambio exitoso")
             break
   
             case "raza":
-              let nuevaRaza = prompt("Ingrese la nueva raza")
+              let nuevaRaza = prompt("Ingrese la nueva raza").toLocaleLowerCase()
               usuariosVeterinaria[posicion].raza = nuevaRaza
               alert("cambio exitoso")
               break
@@ -234,11 +239,11 @@ function eliminar (){
               break
   
             case "especie":
-              let nuevaPeso = prompt("Ingrese el nuevo peso")
-              usuariosVeterinaria[posicion].peso = nuevaPeso
-              alert("cambio exitoso")
-             break
-             
+            let nuevaPeso = prompt("Ingrese el nuevo peso")
+            usuariosVeterinaria[posicion].peso = nuevaPeso
+            alert("cambio exitoso")
+            break
+
             case "estado":
             if( usuariosVeterinaria[posicion].estado == "estable"){
               usuariosVeterinaria[posicion].estado == "critico"
@@ -248,11 +253,11 @@ function eliminar (){
             }
             alert("cambio exitoso")
             break
-  
+              //EN DUENO TENEMOS OTRO CONDICIONAL PARA MODIFICAR SUS DATOS
             case "dueno":
               let type = prompt("Ingrese el dato del deño que desea modificar").toLowerCase()
               if (type == "nombre"){
-              newNombre = prompt("Ingrese el nuevo nombre")
+              newNombre = prompt("Ingrese el nuevo nombre").toLocaleLowerCase()
               usuariosVeterinaria[posicion].dueno.nombre = newNombre
               alert("cambio exitoso")}
   
@@ -281,7 +286,7 @@ function eliminar (){
               default:
                   alert("No se encontro el dato que desea modificar")
                   break
-         }
+        }
       }
       else{
           encontrado = false 
@@ -293,6 +298,7 @@ function eliminar (){
     }
   }
   
+  //EN LISTAR VAMOS A MOSTRAR UNA LISTA DE LOS OBJETOS QUE CONTIENE EL ARRAY PRINCIPAL
   function listar (){
     console.info("Lista de animales")
     for (const i in usuariosVeterinaria) {
@@ -300,17 +306,17 @@ function eliminar (){
             
         }
     }
-
+//ESTE VA A LOSTAR LA SECCION DE DUENOS, DE CADA UNO DE LOS OBJETOS DEL ARRAY
 function listarDueño(){
   console.info("Lista de dueños");
     for (const i of usuariosVeterinaria) {
         console.info(i.dueno);
     }
 }
-
+//ESTA FUNCION VAA BUSCAR LOS ANIMALES POR SU NOMBRE, RECORRIENDO EL ARRAY POR MEDIO DE FOR EACH
 function buscarPorNombre(){
-  console.info("Buscar por dueño");
-    let buscar = prompt("Ingrese el nombre del animal que desea buscar")
+  console.info("Buscar por nombre");
+    let buscar = prompt("Ingrese el nombre del animal que desea buscar").toLocaleLowerCase()
     let encontrado = false
     usuariosVeterinaria.forEach((animal,posicion) => {
         if (usuariosVeterinaria[posicion].nombre === buscar) {
@@ -322,7 +328,7 @@ function buscarPorNombre(){
         alert("No se encontró el animal en la base de datos")
     }
 }
-
+//ESTA FUNCION, BUSCA EN EL ARRAY LOS OBJETOS QUE COINCIDAN CON LA CEDULA INGRESADA PARA EVITAR 2 NOMBRES IGUALES Y LOS VA A MOSTRAR
 function buscarMismoDueño(){
     let cedula = prompt("Ingrese la cedula del dueño")
     let encontrado = false
@@ -336,7 +342,7 @@ function buscarMismoDueño(){
         alert("No se encontró el animal en la base de datos")
     }
 }
-
+//ACA VAMOS A PREGUNTARLE AL USUARIO QUE OPCION DESEA REALIZAR, Y HASTA QUE NO PRESIONE LA OPCION DE SALIR A+VA A PODER CONTINUAR MANIPULANDO LOS DATOS
 function menu(){ let opcion = prompt(`Ingrese la opcion que necesita:
 1. Añadir animal
 2 Eliminar animal
