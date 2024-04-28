@@ -250,26 +250,25 @@ function modificar (){
           break
 
           case "dueno":
-            let type = prompt("Ingrese el dato del deño que desea modificar")
-            let tipo = typle.toLowerCase()
-            if (tipo == "nombre"){
+            let type = prompt("Ingrese el dato del deño que desea modificar").toLowerCase()
+            if (type == "nombre"){
             newNombre = prompt("Ingrese el nuevo nombre")
             usuariosVeterinaria[posicion].dueno.nombre = newNombre
             alert("cambio exitoso")}
 
-            else if (tipo == "documento"){
+            else if (type == "documento"){
               let newDocumento = prompt("Ingrese el nuevo documento")
               usuariosVeterinaria[posicion].dueno.documento=newDocumento
               alert("Cambio exitoso")
             }
 
-            else if (tipo =="telefono"){
+            else if (type =="telefono"){
               newTelefono = prompt("Ingrese el nuevo numero de telefono")
               usuariosVeterinaria[posicion].dueno.telefono = newTelefono
               alert("Cambio exitoso")
             }
 
-            else if (tipo == "correo"){
+            else if (type == "correo"){
               newCorreo = prompt("Ingrese el nuevo correo")
               usuariosVeterinaria[posicion].dueno.correo = newCorreo
               alert("Cambio exitoso")
@@ -294,6 +293,3 @@ function modificar (){
   }
 }
 
-
-modificar()
-console.info(usuariosVeterinaria)
