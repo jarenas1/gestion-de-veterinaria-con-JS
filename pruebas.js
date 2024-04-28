@@ -293,3 +293,14 @@ function modificar (){
   }
 }
 
+function listar (){
+for (const i in usuariosVeterinaria) {
+    console.info(usuariosVeterinaria[i])
+        
+    }
+}
+  
+
+  listar()
+
+  
